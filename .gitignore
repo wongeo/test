@@ -1,12 +1,16 @@
-*.class
+# 过滤文件夹
+.idea/
+build/
+.gradle/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# 过滤文件类型
+*.rawproto
+*.iml
+*.*~
+*.py
+*.pyc
 
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# 过滤特定文件
+local.properties
+gradle.properties
+.rsync_exclude
