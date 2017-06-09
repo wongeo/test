@@ -1,0 +1,34 @@
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
+
+def GROUP_ID = 'com.zhangyue.net'
+def ARTIFACT_ID = "${project.getName()}"
+def VERSION_NAME = '1.0.0'
+
+task uploadMavenRelease{
+    doLast{
+        uploadArchives.repositories.mavenDeployer.pom.version = "${VERSION_NAME}"
+        uploadArchives.execute()
+    }
+}
+
+task uploadMavenSnapshot{
+    doLast{
+        uploadArchives.repositories.mavenDeployer.pom.version = "${VERSION_NAME}-SNAPSHOT"
+        uploadArchives.execute()
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+//            repository(url: uri('../repo'))
+            repository(url: uri('file:///E:/repo'))
+            pom.project {
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                packaging 'aar'
+            }
+        }
+    }
+}

@@ -19,22 +19,6 @@ android {
     }
 }
 
-task hello1 {
-    doLast {
-        println 'doLastdoLastdoLastdoLastdoLastdoLastdoLast'
-    }
-    println 'fefkefeifjeojfoejofejo'
-}
-
-task hello2(dependsOn: ['hello1']) {
-    def sources = fileTree('libs')
-    doLast {
-        sources.each { source ->
-            println source.absolutePath
-        }
-    }
-}
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:24.1.1'
