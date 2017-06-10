@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 apply plugin: 'maven'
 
-def GROUP_ID = 'com.zhangyue.net'
+def GROUP_ID = 'com.zhangyue.library'
 def ARTIFACT_ID = "${project.getName()}"
 def VERSION_NAME = '1.0.0'
 
