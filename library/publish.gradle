@@ -47,6 +47,7 @@ task Test {
         }
 
         println GIT_TAG_FORWARD
+        println GIT_TAG_FORWARD.find("\\d.\\d.\\d")
     }
 }
 
