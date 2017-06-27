@@ -1,21 +1,52 @@
 apply plugin: 'maven-publish'
 apply plugin: 'maven'
 
-def GROUP_ID = 'com.zhangyue.net'
+def GROUP_ID = 'com.zhangyue.library'
 def ARTIFACT_ID = "${project.getName()}"
-def VERSION_NAME = '1.0.0'
+def VERSION_NAME = '1.0.1'
 
-task uploadMavenRelease{
-    doLast{
+// 获取Git 提交hash值
+def GIT_COMMIT_HASH = 'git log -1 --pretty=%h'.execute([], project.rootDir).text.trim()
+// 获取Git 上前的Tag
+def GIT_TAG = 'git describe --tags --abbrev=0'.execute([], project.rootDir).text.trim()
+// 组合Git Tag 和 Hash
+def GIT_TAG_HASH = GIT_TAG + '_' + GIT_COMMIT_HASH
+// 获取git Tag 往前的版本
+def GIT_TAG_FORWARD = 'git describe --tags'.execute([], project.rootDir).text.trim()
+// 获取Git 的地址
+def GIT_URL = file('../.git/config').getText().find("(?<=url\\s=\\s).*[.]git")
+
+def GIT_CLEAN = 'git status'.execute([], project.rootDir).text.trim()
+
+task uploadMavenRelease {
+    doLast {
         uploadArchives.repositories.mavenDeployer.pom.version = "${VERSION_NAME}"
         uploadArchives.execute()
     }
 }
 
-task uploadMavenSnapshot{
-    doLast{
+task uploadMavenSnapshot {
+    doLast {
         uploadArchives.repositories.mavenDeployer.pom.version = "${VERSION_NAME}-SNAPSHOT"
         uploadArchives.execute()
+    }
+}
+
+task Test {
+    doLast {
+        def abc = 'abc'
+
+        def isTrue = abc.find("b")
+
+        println "isTrue is ${isTrue}"
+
+        if (isTrue) {
+            println "a"
+        } else {
+            println "b"
+        }
+
+        println GIT_TAG_FORWARD
     }
 }
 
