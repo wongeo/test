@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.feng.fragment.CoordinatorLayoutFragment;
 import com.feng.mvp.BaseActivity;
@@ -15,13 +17,23 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startFragment(new MyFragment());
+        startFragment(new CoordinatorLayoutFragment());
 
         IntentFilter mScreenOffFilter = new IntentFilter();
         mScreenOffFilter.addAction(Intent.ACTION_SCREEN_OFF);
         registerReceiver(mScreenOffReceiver, mScreenOffFilter);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
     private BroadcastReceiver mScreenOffReceiver = new BroadcastReceiver() {
         @SuppressWarnings("deprecation")

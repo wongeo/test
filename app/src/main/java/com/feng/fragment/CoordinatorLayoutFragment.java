@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,13 @@ public class CoordinatorLayoutFragment extends Fragment {
         mViewPager.setAdapter(adapter);
 
         mTabLayout.setupWithViewPager(mViewPager);
+
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+
+        toolbar.setTitle("aaaaaaaaa");
+
+
+
         return view;
     }
 
