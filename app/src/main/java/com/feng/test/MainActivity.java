@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 
+import com.feng.fragment.CoordinatorLayoutFragment;
 import com.feng.mvp.BaseActivity;
 
 
