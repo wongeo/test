@@ -1,5 +1,6 @@
 package com.feng.util.net.http;
 
+import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.util.Log;
 
 import java.io.IOException;
@@ -12,30 +13,51 @@ import java.net.URL;
  * Created by feng on 2017/6/30.
  */
 
-public class WebClient {
+public class WebClient extends AbsWebCLient {
+
+    public static final String TAG = "WebClient";
+
     private OnWebClientListener mOnWebClientListener;
 
-    public void downloadData(String url) throws IOException {
-        // 打开一个HttpURLConnection连接
-        HttpURLConnection urlConn = (HttpURLConnection) new URL(url).openConnection();
-        // 设置连接超时时间
-        urlConn.setConnectTimeout(5 * 1000);
-        // 开始连接
-        urlConn.connect();
-        // 判断请求是否成功
-        if (urlConn.getResponseCode() == 200) {
-            // 获取返回的数据
-            byte[] data = readStream(urlConn.getInputStream());
-            Log.i(TAG_GET, "Get方式请求成功，返回数据如下：");
-        } else {
-            Log.i(TAG_GET, "Get方式请求失败");
-        }
-        // 关闭连接
-        urlConn.disconnect();
+    public void setWebClientListener(OnWebClientListener listener) {
+        mOnWebClientListener = listener;
     }
 
-    public void downloadDataAsync(String url) {
+    public void downloadData(String url) {
 
+        // 打开一个HttpURLConnection连接
+        HttpURLConnection conn = null;
+
+        try {
+            mUrl = new URL(url);
+            conn = (HttpURLConnection) mUrl.openConnection();
+            // 设置连接超时时间
+            conn.setConnectTimeout(5 * 1000);
+            // 开始连接
+            conn.connect();
+            // 判断请求是否成功
+            if (conn.getResponseCode() == 200) {
+                // 获取返回的数据
+                byte[] data = readStream(conn.getInputStream());
+                Log.i(TAG, "Get方式请求成功，返回数据如下：");
+            } else {
+                Log.i(TAG, "Get方式请求失败");
+            }
+        } catch (Exception ex) {
+
+        } finally {
+            // 关闭连接
+            conn.disconnect();
+        }
+    }
+
+    public void downloadDataAsync(final String url) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                downloadData(url);
+            }
+        }).start();
     }
 
     private byte[] readStream(InputStream inputStream) {
@@ -44,5 +66,8 @@ public class WebClient {
 
     public interface OnWebClientListener {
 
+        void onError(String url, Exception ex);
+
+        void onFinish(String url, byte[] resut);
     }
 }
