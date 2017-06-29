@@ -70,7 +70,7 @@ public class MD5 {
 			MessageDigest md5 = MessageDigest.getInstance("md5");
 			fis = new FileInputStream(file);
 			byte[] buffer = new byte[1024];
-			int readCount = 0;
+			int readCount;
 			while ((readCount = fis.read(buffer)) > -1) {
 				md5.update(buffer, 0, readCount);
 			}
