@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.feng.fragment.CoordinatorLayoutFragment;
+import com.feng.fragment.TingFragment;
 import com.feng.mvp.BaseActivity;
 
 
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        ToastUtil.showToast(this);
         return super.onOptionsItemSelected(item);
     }
 

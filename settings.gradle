@@ -1,1 +1,1 @@
-include ':app', ':library',':autopack'
+include ':app', ':library', ':autopack', ':gradletest'

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/club_album_detail_head_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher" />
+
+
+    <TextView
+        android:id="@+id/club_album_detail_head_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="吃出漂亮" />
+
+    <TextView
+        android:id="@+id/club_album_detail_head_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="主讲人：田雪 国家高级营养师" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/club_album_detail_head_subtitle_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="每周一三五更新-共50期，已更新4期" />
+
+        <TextView
+            android:id="@+id/club_album_detail_head_subtitle_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            tools:text="70人在听" />
+    </RelativeLayout>
+
+</LinearLayout>
