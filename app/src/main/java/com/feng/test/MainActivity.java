@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.feng.fragment.CoordinatorLayoutFragment;
+import com.feng.fragment.SvgDrawableFragment;
 import com.feng.fragment.TingFragment;
 import com.feng.mvp.BaseActivity;
 
@@ -18,11 +19,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startFragment(new CoordinatorLayoutFragment());
-
-        IntentFilter mScreenOffFilter = new IntentFilter();
-        mScreenOffFilter.addAction(Intent.ACTION_SCREEN_OFF);
-        registerReceiver(mScreenOffReceiver, mScreenOffFilter);
+        startFragment(new SvgDrawableFragment());
     }
 
     @Override
