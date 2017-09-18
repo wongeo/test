@@ -50,7 +50,7 @@ public class ImageLoader {
 	 * @param path
 	 * @param onCompleted
 	 */
-	public void getRemoteImageOrCacheAsync(final String url, final String path, final Action<Bitmap> onCompleted) {
+	public void getRemoteImageOrCacheAsync(final String url, final String path, final SingleArgsAction<Bitmap> onCompleted) {
 		mDownImagePool.submit(new Runnable() {
 
 			@Override

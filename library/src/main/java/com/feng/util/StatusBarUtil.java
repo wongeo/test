@@ -14,6 +14,7 @@ import com.feng.library.R;
  */
 
 public class StatusBarUtil {
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static void setStatusBarColorKITKAT(Activity activity, int statusColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

@@ -1,5 +1,5 @@
 package com.feng.util;
 
-public interface Action<T> {
+public interface SingleArgsAction<T> {
 	void execute(T args);
 }
