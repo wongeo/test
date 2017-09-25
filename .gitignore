@@ -2,6 +2,7 @@
 .idea/
 build/
 .gradle/
+captures/
 
 # 过滤文件类型
 *.rawproto
