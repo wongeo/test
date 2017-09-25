@@ -42,6 +42,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        startActivity(new Intent(MainActivity.this, BActivity.class));
         return super.onOptionsItemSelected(item);
     }
 

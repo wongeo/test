@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
+import com.feng.app.SwipeBackActivity;
 import com.feng.library.R;
 import com.feng.util.StatusBarUtil;
 
@@ -22,7 +23,7 @@ import com.feng.util.StatusBarUtil;
 /**
  * Created by feng on 2017/4/6.
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends SwipeBackActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
