@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        initActionBar();
-        startFragment(new RuntimeDemoFragment());
+        startFragment(new CoordinatorLayoutFragment());
 
 //        immersionBanner();
 

@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.feng.test.R;
 
@@ -45,11 +46,9 @@ public class CoordinatorLayoutFragment extends Fragment {
 
         mTabLayout.setupWithViewPager(mViewPager);
 
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        TextView textView = (TextView) view.findViewById(R.id.head_view_text);
 
-        toolbar.setTitle("aaaaaaaaa");
-
-
+        textView.setText("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
         return view;
     }

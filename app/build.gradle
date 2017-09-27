@@ -22,17 +22,10 @@ android {
         }
     }
     productFlavors {
-        ontology {
+        oppo {
 
         }
 
-        tttt {
-
-        }
-
-        ffff {
-
-        }
     }
 }
 
