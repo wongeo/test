@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply from:'publish.gradle'
+apply from: 'publish.gradle'
+apply from: 'publishing.gradle'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -21,4 +22,18 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.+'
+}
+
+task hello2 {
+    doLast {
+        println 'hello2'
+    }
+}
+
+task hello1 {
+
+    doLast {
+        println components.toString()
+
+    }
 }

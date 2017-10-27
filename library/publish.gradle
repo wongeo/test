@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 apply plugin: 'maven'
 
-def GROUP_ID = 'com.zhangyue.library'
+def GROUP_ID = 'com.feng.library'
 def ARTIFACT_ID = "${project.getName()}"
 def VERSION_NAME = '1.0.1'
 
@@ -67,7 +67,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
 //            repository(url: uri('../repo'))
-            repository(url: uri('file:///E:/repo'))
+            repository(url: uri('file:///D:/repo'))
             pom.project {
                 groupId GROUP_ID
                 artifactId ARTIFACT_ID
