@@ -10,7 +10,7 @@ import android.view.View;
  *
  * @param <P> 相依赖的Presenter业务类
  */
-public class BaseFragment<P extends BasePresenter> extends Fragment implements BaseView<P> {
+public class BaseFragment<P extends BasePresenter> extends Fragment {
 
     public boolean onBackPress() {
         if (mPresenter != null) {
@@ -21,11 +21,9 @@ public class BaseFragment<P extends BasePresenter> extends Fragment implements B
 
     protected P mPresenter;
 
-    @Override
     public void setPresenter(P presenter) {
         mPresenter = presenter;
     }
-
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

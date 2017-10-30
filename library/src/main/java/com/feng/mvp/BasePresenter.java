@@ -15,7 +15,7 @@ import android.view.View;
  * @author adison
  *         created at 16/3/16 下午9:20
  */
-public abstract class BasePresenter<V extends BaseView> {
+public abstract class BasePresenter<V extends BaseFragment> {
 
     protected V mView;
 
@@ -132,7 +132,7 @@ public abstract class BasePresenter<V extends BaseView> {
         if (mView == null) {
             return false;
         } else {
-            Fragment fragment = (Fragment) mView;
+            Fragment fragment = mView;
             return fragment.getActivity() != null;
         }
     }
