@@ -40,13 +40,6 @@ public class BaseActivity extends SwipeBackActivity {
         transaction.commit();
     }
 
-    protected void startFragment(Fragment fragment) {
-        mFragment = fragment;
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(android.R.id.content, fragment);
-        transaction.commit();
-    }
-
     @Override
     public void onBackPressed() {
         if (mFragment instanceof BaseFragment) {

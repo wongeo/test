@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.feng.mvp.BaseFragment;
 import com.feng.test.R;
 
 import java.util.LinkedList;
@@ -24,7 +25,7 @@ import java.util.List;
  * Created by feng on 2017/6/29.
  */
 
-public class CoordinatorLayoutFragment extends Fragment {
+public class CoordinatorLayoutFragment extends BaseFragment {
 
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
