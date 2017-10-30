@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply from: '../../MavenPublish/publish.gradle'
 apply from: '../../MavenPublish/publishing.gradle'
+
+apply from: 'config.gradle'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -33,7 +35,7 @@ task hello2 {
 task hello1 {
 
     doLast {
-        println components.toString()
+        println GROUP_ID
 
     }
 }
