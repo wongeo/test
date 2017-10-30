@@ -12,10 +12,9 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
-import com.feng.app.SwipeBackActivity;
+import com.feng.activity.SwipeBackActivity;
 import com.feng.library.R;
 import com.feng.util.StatusBarUtil;
 

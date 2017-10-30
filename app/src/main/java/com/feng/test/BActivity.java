@@ -2,7 +2,7 @@ package com.feng.test;
 
 import android.os.Bundle;
 
-import com.feng.app.SwipeBackActivity;
+import com.feng.activity.SwipeBackActivity;
 
 public class BActivity extends SwipeBackActivity {
 

@@ -23,8 +23,6 @@ import java.util.List;
 /**
  * 监听手势的view
  * 当创建时，会将activity的contentView移动到此view下，并将此view作为activity的contentView，从而实现全局手势
- *
- * @author huangjian
  */
 public class GuestureLayout extends FrameLayout {
     /**

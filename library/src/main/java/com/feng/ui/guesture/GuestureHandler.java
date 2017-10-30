@@ -8,7 +8,6 @@ import java.lang.reflect.Method;
 
 /**
  * 界面回退手势处理器
- * Created by chenxingang on 2016/11/3.
  */
 
 public class GuestureHandler implements IGuestureHandler {

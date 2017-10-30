@@ -16,7 +16,6 @@ import java.util.Arrays;
 
 /**
  * ViewGuestureHelper是一个手势工具类用类。
- * @author huangjian
  */
 public class ViewGuestureHelper {
 	public static final int MAX_POINTER_ID 				= 15; //最多支持15点触摸
