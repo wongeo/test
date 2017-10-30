@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: 'publish.gradle'
-apply from: 'publishing.gradle'
+apply from: '../../MavenPublish/publish.gradle'
+apply from: '../../MavenPublish/publishing.gradle'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
