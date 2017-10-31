@@ -25,6 +25,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.+'
 }
+group = 'com.feng.android'
+description = "测试使用的信息"
+version = "3.0.0"
+System.setProperty("ARTIFACT_ID", "mylibrary")
 
 task hello2 {
     doLast {
@@ -32,10 +36,16 @@ task hello2 {
     }
 }
 
-task hello1 {
-
+task hello3 {
     doLast {
-        println GROUP_ID
+        println 'hello3'
+    }
+}
+
+task hello1(dependsOn: ['hello2', 'hello3']) {
+//    hello1.dependsOn hello3
+    doLast {
+        println project.getGroup().toString()
 
     }
 }
