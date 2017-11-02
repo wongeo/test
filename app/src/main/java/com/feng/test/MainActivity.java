@@ -9,10 +9,13 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.feng.activity.BActivity;
+import com.feng.activity.PermissionsActivity;
 import com.feng.fragment.CoordinatorLayoutFragment;
 import com.feng.fragment.FullScreenModeFragment;
 import com.feng.fragment.RecyclerViewFragment;
@@ -20,15 +23,19 @@ import com.feng.fragment.RuntimeDemoFragment;
 import com.feng.fragment.SvgDrawableFragment;
 import com.feng.fragment.TingFragment;
 import com.feng.mvp.BaseActivity;
+import com.feng.util.StringUtils;
+import com.feng.util.io.FileUtils;
+
+import java.io.File;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends PermissionsActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        initActionBar();
-        startFragment(new CoordinatorLayoutFragment());
+        startFragment(new MyFragment());
 
 //        immersionBanner();
 

@@ -23,13 +23,6 @@ import com.feng.util.StatusBarUtil;
  * Created by feng on 2017/4/6.
  */
 public class BaseActivity extends SwipeBackActivity {
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestAllPermissions();
-        }
-    }
 
     private Fragment mFragment;
 
@@ -70,21 +63,6 @@ public class BaseActivity extends SwipeBackActivity {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void requestAllPermissions() {
-
-        String[] permissions = new String[]{
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_PHONE_STATE};
-
-        for (String permission : permissions) {
-            if (checkSelfPermission(permission) == PackageManager.PERMISSION_DENIED) {
-                requestPermissions(permissions, 1);
-                break;
-            }
-        }
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

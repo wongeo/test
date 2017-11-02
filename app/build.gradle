@@ -30,13 +30,15 @@ android {
     }
 }
 
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //    compile 'com.zhangyue.aac:aacplayer:2.0.3'
     compile project(':library')
-    compile 'com.android.support:support-v4:25.+'
-    compile 'com.android.support:appcompat-v7:25.+'
-    compile 'com.android.support:design:25.+'
-//    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    //    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile files('libs/YoukuPlayer-1.2.0.2-source.jar')
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
 }

@@ -24,7 +24,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".LockScreenActivity" />
-        <activity android:name=".BActivity"></activity>
+        <activity
+            android:name="com.feng.activity.BActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout" />
     </application>
 
 </manifest>

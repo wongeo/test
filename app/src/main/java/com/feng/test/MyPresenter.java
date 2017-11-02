@@ -19,14 +19,7 @@ public class MyPresenter extends BasePresenter<MyFragment> {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        String text = new String(FileUtils.read(Environment.getExternalStorageDirectory() + "/test.xml"));
 
-        try {
-            Persion p = XML.parseObject(text, Persion.class);
-            System.out.println();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
