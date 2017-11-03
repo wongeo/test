@@ -5,14 +5,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
-import android.widget.Toast;
 
 import com.feng.mvp.BaseActivity;
 
@@ -70,16 +68,12 @@ public class PermissionCompatActivity extends BaseActivity {
     }
 
     public void requestAllPermissions() {
-        try {
-            String[] permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE};
-            for (String permission : permissions) {
-                if (ActivityCompat.checkSelfPermission(this, permission) == PERMISSION_DENIED) {
-                    ActivityCompat.requestPermissions(this, permissions, PermissionCompatActivity.PERMISSION_REQUEST);
-                    return;
-                }
+        String[] permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE};
+        for (String permission : permissions) {
+            if (ActivityCompat.checkSelfPermission(this, permission) == PERMISSION_DENIED) {
+                ActivityCompat.requestPermissions(this, permissions, PermissionCompatActivity.PERMISSION_REQUEST);
+                return;
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
         }
     }
 }

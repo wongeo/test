@@ -53,15 +53,16 @@ public class MyFragment extends BaseFragment<MyPresenter> implements View.OnClic
     @Override
     public void onClick(View v) {
         if (v == mButton1) {
+            PermissionCompatActivity activity = (PermissionCompatActivity) getActivity();
+            activity.requestAllPermissions();
             try {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && getActivity() instanceof PermissionCompatActivity) {
-                    PermissionCompatActivity activity = (PermissionCompatActivity) getActivity();
-                    activity.requestAllPermissions();
-                }
+                byte[] raw = FileUtils.read(Environment.getExternalStorageDirectory() + "/configmanager.json");
+                String str = new String(raw);
                 System.out.println();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+
         } else if (v == mButton2) {
 
             startActivity(new Intent(getActivity(), BActivity.class));
