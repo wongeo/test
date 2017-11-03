@@ -1,20 +1,24 @@
 package com.feng.test;
 
-import android.content.Context;
+import android.Manifest;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.feng.activity.*;
+import com.feng.activity.BActivity;
+import com.feng.activity.PermissionCompatActivity;
 import com.feng.mvp.BaseFragment;
 import com.feng.util.io.FileUtils;
+import com.youku.runtimepermission.PermissionCompat;
+
+import static android.content.pm.PackageManager.PERMISSION_DENIED;
+import static android.support.v4.content.PermissionChecker.PERMISSION_GRANTED;
 
 
 /**
@@ -50,15 +54,17 @@ public class MyFragment extends BaseFragment<MyPresenter> implements View.OnClic
     public void onClick(View v) {
         if (v == mButton1) {
             try {
-                byte[] raw = FileUtils.read(Environment.getExternalStorageDirectory() + "/configmanager.json");
-                String str = new String(raw);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && getActivity() instanceof PermissionCompatActivity) {
+                    PermissionCompatActivity activity = (PermissionCompatActivity) getActivity();
+                    activity.requestAllPermissions();
+                }
                 System.out.println();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         } else if (v == mButton2) {
 
-            startActivity(new Intent(getActivity(), com.feng.activity.BActivity.class));
+            startActivity(new Intent(getActivity(), BActivity.class));
         }
     }
 }

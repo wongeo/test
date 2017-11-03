@@ -8,22 +8,14 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     useLibrary "org.apache.http.legacy"
-    defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.+'
+    //android N 权限获取兼容
+    //http://gitlab-sc.alibaba-inc.com/youku-android/runtimepermission/wikis/home
+    compile('com.youku.android:runtimepermission:1.0.0.6')
 }
 group = 'com.feng.android'
 description = "测试使用的信息"

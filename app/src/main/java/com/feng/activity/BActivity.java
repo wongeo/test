@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.feng.mvp.BaseActivity;
 import com.feng.test.MyFragment;
 
-public class BActivity extends BaseActivity {
+public class BActivity extends PermissionCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,7 +2,13 @@
 
 buildscript {
     repositories {
-        jcenter()
+        mavenLocal()
+        maven {
+            url "http://mvnrepo.alibaba-inc.com/mvn/repository"
+        }
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
@@ -16,10 +22,11 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
-        repositories {
-            jcenter()
-
+        maven {
+            url "http://mvnrepo.alibaba-inc.com/mvn/repository"
+        }
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
         }
     }
     ext {
