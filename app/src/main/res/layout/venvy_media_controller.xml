@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:background="#ff000000"
+    android:clickable="true">
+
+    <ImageButton
+        android:id="@+id/venvy_start"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/venvy_start_player_icon" />
+
+    <TextView
+        android:id="@+id/venvy_position_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/venvy_start"
+        android:text="00:00"
+        android:textColor="@color/colorAccent" />
+
+    <ImageView
+        android:id="@+id/venvy_screen"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/venvy_screen_player_icon" />
+
+
+    <TextView
+        android:id="@+id/venvy_total_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/venvy_screen"
+        android:text="00:00"
+        android:textColor="@color/colorAccent" />
+
+    <SeekBar
+        android:id="@+id/venvy_seekbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toLeftOf="@id/venvy_total_time"
+        android:layout_toRightOf="@id/venvy_position_text"
+        android:focusable="true"
+        android:max="1000"
+        android:maxHeight="10dp"
+        android:minHeight="10dp" />
+</RelativeLayout>

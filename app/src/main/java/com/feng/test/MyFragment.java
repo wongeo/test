@@ -1,12 +1,9 @@
 package com.feng.test;
 
-import android.Manifest;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +12,6 @@ import com.feng.activity.BActivity;
 import com.feng.activity.PermissionCompatActivity;
 import com.feng.mvp.BaseFragment;
 import com.feng.util.io.FileUtils;
-import com.youku.runtimepermission.PermissionCompat;
-
-import static android.content.pm.PackageManager.PERMISSION_DENIED;
-import static android.support.v4.content.PermissionChecker.PERMISSION_GRANTED;
 
 
 /**
