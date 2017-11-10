@@ -63,11 +63,9 @@ public class CustomVideoFragment extends BaseFragment<CustomVideoPresenter> impl
 
     @Override
     public void onStartClick() {
-        if (mVideoView.getPlayerState() == PlayerState.PAUSED || mVideoView.getPlayerState() == PlayerState.STOPED) {
-            mVideoView.play();
-        } else {
-            mVideoView.pause();
-        }
+
+        mPresenter.onStartClick();
+
     }
 
     @Override

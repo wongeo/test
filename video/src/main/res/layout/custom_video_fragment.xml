@@ -7,7 +7,8 @@
     <com.feng.video.view.CustomVideoView
         android:id="@+id/custom_video_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical" />
 
     <com.feng.video.view.MediaBottomView
         android:id="@+id/media_bottom_view"

@@ -3,6 +3,7 @@ package com.feng.video.fragment;
 import android.os.Bundle;
 import android.view.View;
 
+import com.feng.media.CustomMediaPlayer;
 import com.feng.media.IPlayStateCallback;
 import com.feng.media.PlayerState;
 import com.feng.mvp.BasePresenter;
@@ -13,14 +14,16 @@ import com.feng.mvp.BasePresenter;
 
 public class CustomVideoPresenter extends BasePresenter<CustomVideoFragment> {
 
+    private CustomMediaPlayer mMediaPlayer;
+
     public CustomVideoPresenter(CustomVideoFragment view) {
         super(view);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        mMediaPlayer = getView().mVideoView.getMediaPlayer();
         getView().mVideoView.setPlayStateCallback(mPlayStateCallback);
-        getView().mVideoView.play();
     }
 
     private IPlayStateCallback mPlayStateCallback = new IPlayStateCallback() {
@@ -69,4 +72,14 @@ public class CustomVideoPresenter extends BasePresenter<CustomVideoFragment> {
             getView().mMediaBottomView.onStop();
         }
     };
+
+    public void onStartClick() {
+        if (mMediaPlayer.getPlayerState() == PlayerState.STOPED) {
+            mMediaPlayer.play("http://flashmedia.eastday.com/newdate/news/2016-11/shznews1125-19.mp4", 0);
+        } else if (mMediaPlayer.getPlayerState() == PlayerState.PAUSED) {
+            mMediaPlayer.start();
+        } else {
+            mMediaPlayer.pause();
+        }
+    }
 }
