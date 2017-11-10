@@ -82,4 +82,12 @@ public class CustomVideoPresenter extends BasePresenter<CustomVideoFragment> {
             mMediaPlayer.pause();
         }
     }
+
+    public void onSeekTo(float percent) {
+        if (mMediaPlayer.getPlayerState() != PlayerState.PLAYING && mMediaPlayer.getPlayerState() != PlayerState.PAUSED) {
+            mMediaPlayer.play("http://flashmedia.eastday.com/newdate/news/2016-11/shznews1125-19.mp4", percent);
+        } else {
+            mMediaPlayer.seekTo(percent);
+        }
+    }
 }

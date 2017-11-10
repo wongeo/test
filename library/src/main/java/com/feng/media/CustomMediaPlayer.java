@@ -18,8 +18,11 @@ public class CustomMediaPlayer extends MediaPlayer {
 
     private IPlayStateCallback mPlayStateCallback;
 
-    public void play(String path, int position) {
+    private float mPercent;
+
+    public void play(String path, float percent) {
         try {
+            mPercent = percent;
             reset();
             setDataSource(path);
             prepareAsync();
@@ -30,10 +33,17 @@ public class CustomMediaPlayer extends MediaPlayer {
         }
     }
 
+
+    public void seekTo(float percent) {
+        super.seekTo((int) (getDuration() * percent));
+        start();
+    }
+
     @Override
     public void start() throws IllegalStateException {
         super.start();
         notifyPlayerStateChanged(PlayerState.PLAYING);
+        mProgressHandler.sendEmptyMessage(VIDEO_PROGRESS);
     }
 
     @Override
@@ -87,6 +97,11 @@ public class CustomMediaPlayer extends MediaPlayer {
                 if (mPlayStateCallback != null) {
                     mPlayStateCallback.onPrepared(mp.getDuration());
                 }
+                if (mPercent != 0) {
+                    int position = (int) (mp.getDuration() * mPercent);
+                    seekTo(position);
+                }
+
                 start();
             }
         });
@@ -110,8 +125,8 @@ public class CustomMediaPlayer extends MediaPlayer {
                         long position = getCurrentPosition();
                         long duration = getDuration();
                         mPlayStateCallback.onPlayPositionChanged(position * 1.0f / duration, position, duration);
+                        mProgressHandler.sendEmptyMessageDelayed(VIDEO_PROGRESS, 1000);
                     }
-                    mProgressHandler.sendEmptyMessageDelayed(VIDEO_PROGRESS, 1000);
                     break;
             }
         }

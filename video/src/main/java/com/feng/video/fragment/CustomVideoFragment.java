@@ -70,6 +70,6 @@ public class CustomVideoFragment extends BaseFragment<CustomVideoPresenter> impl
 
     @Override
     public void onSeekTo(float percent) {
-
+mPresenter.onSeekTo(percent);
     }
 }
