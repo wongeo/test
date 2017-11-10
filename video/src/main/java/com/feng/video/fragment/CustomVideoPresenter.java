@@ -3,7 +3,7 @@ package com.feng.video.fragment;
 import android.os.Bundle;
 import android.view.View;
 
-import com.feng.media.CustomMediaPlayer;
+import com.feng.media.VideoMediaPlayer;
 import com.feng.media.IPlayStateCallback;
 import com.feng.media.PlayerState;
 import com.feng.mvp.BasePresenter;
@@ -14,7 +14,7 @@ import com.feng.mvp.BasePresenter;
 
 public class CustomVideoPresenter extends BasePresenter<CustomVideoFragment> {
 
-    private CustomMediaPlayer mMediaPlayer;
+    private VideoMediaPlayer mMediaPlayer;
 
     public CustomVideoPresenter(CustomVideoFragment view) {
         super(view);

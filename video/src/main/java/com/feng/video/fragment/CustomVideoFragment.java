@@ -7,11 +7,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.feng.media.PlayerState;
 import com.feng.mvp.BaseFragment;
 import com.feng.video.R;
-import com.feng.video.view.MediaBottomView;
 import com.feng.video.view.CustomVideoView;
+import com.feng.video.view.MediaBottomView;
 
 /**
  * Created by feng on 2017/11/9.
@@ -70,6 +69,6 @@ public class CustomVideoFragment extends BaseFragment<CustomVideoPresenter> impl
 
     @Override
     public void onSeekTo(float percent) {
-mPresenter.onSeekTo(percent);
+        mPresenter.onSeekTo(percent);
     }
 }

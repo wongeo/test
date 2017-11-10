@@ -15,18 +15,18 @@ import android.view.TextureView;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.feng.media.CustomMediaPlayer;
+import com.feng.media.VideoMediaPlayer;
 import com.feng.media.IPlayStateCallback;
 
 /**
- * Created by wj148202 on 2017/11/9.
+ * Created by feng on 2017/11/9.
  */
 
 public class CustomVideoView extends FrameLayout {
 
     private NewTextureView mTextureView;
 
-    private CustomMediaPlayer mMediaPlayer;
+    private VideoMediaPlayer mMediaPlayer;
 
     public CustomVideoView(@NonNull Context context) {
         super(context);
@@ -77,7 +77,7 @@ public class CustomVideoView extends FrameLayout {
     }
 
     private void initMediaPlayer() {
-        mMediaPlayer = new CustomMediaPlayer();
+        mMediaPlayer = new VideoMediaPlayer();
         mMediaPlayer.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
             @Override
             public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
@@ -86,7 +86,7 @@ public class CustomVideoView extends FrameLayout {
         });
     }
 
-    public CustomMediaPlayer getMediaPlayer() {
+    public VideoMediaPlayer getMediaPlayer() {
         return mMediaPlayer;
     }
 

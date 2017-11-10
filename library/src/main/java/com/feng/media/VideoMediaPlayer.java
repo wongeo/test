@@ -7,10 +7,10 @@ import android.os.Message;
 import java.io.IOException;
 
 /**
- * Created by wj148202 on 2017/11/10.
+ * Created by feng on 2017/11/10.
  */
 
-public class CustomMediaPlayer extends MediaPlayer {
+public class VideoMediaPlayer extends MediaPlayer {
 
     private static final int VIDEO_PROGRESS = 1;
 
