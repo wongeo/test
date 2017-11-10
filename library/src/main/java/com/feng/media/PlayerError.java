@@ -19,7 +19,7 @@ public class PlayerError {
 	public static final int INFO_FORMAT_CHANGED = MEDIA_ERROR_BASE - 12;
 	public static final int INFO_DISCONTINUITY = MEDIA_ERROR_BASE - 13;
 
-	// Custom Error for corrupt NAL
+	// Custom ERROR for corrupt NAL
 	public static final int ERROR_CompletionButNotEnd = MEDIA_ERROR_BASE - 98;
 	public static final int ERROR_CORRUPT_NAL = MEDIA_ERROR_BASE - 99;
 

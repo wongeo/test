@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.feng.mvp.BaseFragment;
 import com.feng.test.R;
+import com.feng.video.fragment.CustomVideoFragment;
 
 /**
  * Created by wj148202 on 2017/11/9.

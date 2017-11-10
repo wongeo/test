@@ -9,8 +9,10 @@
         <!--控制各个控件被选中时的颜色-->
         <item name="colorAccent">@color/colorAccent</item>
         <!--ToolBar上的Title颜色-->
-        <item name="android:textColorPrimary">#ff0000</item>
+        <item name="android:textColorPrimary">#ff000000</item>
 
+        <!--Button按钮正常状态颜色-->
+        <item name="colorButtonNormal">@color/accent_material_light</item>
 
         <!--window透明，用于做滑动退出-->
         <item name="android:windowIsTranslucent">true</item>

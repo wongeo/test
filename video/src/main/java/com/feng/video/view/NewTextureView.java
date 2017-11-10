@@ -1,4 +1,4 @@
-package com.feng.view;
+package com.feng.video.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

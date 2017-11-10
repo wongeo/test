@@ -1,4 +1,4 @@
-package com.feng.view;
+package com.feng.video.view;
 
 import android.content.Context;
 import android.support.annotation.AttrRes;
@@ -12,70 +12,78 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.feng.test.R;
 import com.feng.util.TimeUtils;
+import com.feng.video.R;
 
 /**
  * Created by wj148202 on 2017/11/9.
  */
 
-public class CustomMediaController extends FrameLayout implements IMediaController, View.OnClickListener {
+public class MediaBottomView extends FrameLayout implements View.OnClickListener {
 
-    private ImageView mPlay;
+    private ImageView mStart;
     private TextView mPosition;
     private TextView mDuration;
     private SeekBar mSeekBar;
 
-    public CustomMediaController(@NonNull Context context) {
+    private IMediaBottomViewListener mListener;
+
+    public MediaBottomView(@NonNull Context context) {
         super(context);
         init();
     }
 
-    public CustomMediaController(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public MediaBottomView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public CustomMediaController(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public MediaBottomView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.venvy_media_controller, this);
-        mPlay = (ImageView) findViewById(R.id.venvy_start);
+        mStart = (ImageView) findViewById(R.id.venvy_start);
         mPosition = (TextView) findViewById(R.id.venvy_position_text);
         mDuration = (TextView) findViewById(R.id.venvy_total_time);
         mSeekBar = (SeekBar) findViewById(R.id.venvy_seekbar);
-        mSeekBar.setMax(10000);
+
+        mStart.setOnClickListener(this);
+
     }
 
-    @Override
+    public void setListener(IMediaBottomViewListener listener) {
+        mListener = listener;
+    }
+
+    /**
+     * 是否显示
+     *
+     * @return
+     */
     public boolean isShowing() {
         return getVisibility() == View.VISIBLE;
     }
 
-    @Override
-    public void onShow() {
-        setVisibility(View.VISIBLE);
-    }
 
-    @Override
-    public void onHide() {
+    public void hide() {
         setVisibility(View.GONE);
     }
 
-    @Override
+    public void show() {
+        setVisibility(View.VISIBLE);
+    }
+
     public void onStop() {
-        mPlay.setBackgroundResource(R.drawable.venvy_start_player_icon);
+        mStart.setBackgroundResource(R.drawable.venvy_start_player_icon);
     }
 
-    @Override
     public void onStart() {
-        mPlay.setBackgroundResource(R.drawable.venvy_pause_player_icon);
+        mStart.setBackgroundResource(R.drawable.venvy_pause_player_icon);
     }
 
-    @Override
     public void onPositionChange(long position, long duration) {
         mPosition.setText(TimeUtils.timeToMediaString2(position));
         mDuration.setText(TimeUtils.timeToMediaString2(duration));
@@ -85,6 +93,16 @@ public class CustomMediaController extends FrameLayout implements IMediaControll
 
     @Override
     public void onClick(View v) {
+        if (v == mStart) {
+            if (mListener != null) {
+                mListener.onStartClick();
+            }
+        }
+    }
 
+    public interface IMediaBottomViewListener {
+        void onStartClick();
+
+        void onSeekTo(float position);
     }
 }

@@ -2,15 +2,16 @@ package com.feng.media;
 
 public interface IPlayStateCallback {
 
-	void onMediaError(int what, int extra);
 
-	void onBufferingProgressChanged(int percent);
+    void onMediaError(Exception ex);
 
-	void onPlayerStateChanged(int newState);
+    void onBufferingProgressChanged(int percent);
 
-	void onPrepared(int duration);
+    void onPlayerStateChanged(@PlayerState.Status int newState);
 
-	void onPlayPositionChanged(float percent, long position, long duration);
+    void onPrepared(int duration);
 
-	void onCompletion();
+    void onPlayPositionChanged(float percent, long position, long duration);
+
+    void onCompletion();
 }
