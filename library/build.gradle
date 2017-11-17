@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: '../../MavenPublish/publish.gradle'
-apply from: '../../MavenPublish/publishing.gradle'
+apply from: '../../maven-publish/publish.gradle'
+apply from: '../../maven-publish/publishing.gradle'
 
 apply from: 'config.gradle'
 android {
