@@ -11,6 +11,7 @@ import com.feng.activity.BActivity;
 import com.feng.activity.PermissionCompatActivity;
 import com.feng.fragment.GestureFragment;
 import com.feng.fragment.VideoDemoFragment;
+import com.feng.fragment.WeakReferenceFragment;
 
 
 public class MainActivity extends PermissionCompatActivity {
@@ -19,7 +20,7 @@ public class MainActivity extends PermissionCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        initActionBar();
-        startFragment(new GestureFragment());
+        startFragment(new WeakReferenceFragment());
 
 //        immersionBanner();
 
