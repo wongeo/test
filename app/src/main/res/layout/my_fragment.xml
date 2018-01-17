@@ -4,13 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="10000"
-        android:progress="3" />
-
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -21,5 +14,27 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:text="跳转页面" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:id="@+id/view1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="#ff0000">
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="#000000" />
+        </FrameLayout>
+
+
+    </FrameLayout>
 </LinearLayout>

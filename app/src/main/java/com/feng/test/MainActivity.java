@@ -3,6 +3,7 @@ package com.feng.test;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import com.feng.activity.BActivity;
 import com.feng.activity.PermissionCompatActivity;
 import com.feng.fragment.GestureFragment;
 import com.feng.fragment.VideoDemoFragment;
+import com.feng.fragment.ViewGroupTouch;
 import com.feng.fragment.WeakReferenceFragment;
 
 
@@ -20,7 +22,7 @@ public class MainActivity extends PermissionCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        initActionBar();
-        startFragment(new WeakReferenceFragment());
+        startFragment(new MyFragment());
 
 //        immersionBanner();
 
@@ -49,4 +51,24 @@ public class MainActivity extends PermissionCompatActivity {
             }
         }
     };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode);
+    }
 }

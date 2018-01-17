@@ -1,23 +1,21 @@
 package com.feng.test;
 
-import android.content.Intent;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.feng.activity.BActivity;
-import com.feng.activity.PermissionCompatActivity;
 import com.feng.mvp.BaseFragment;
-import com.feng.util.io.FileUtils;
 
 
 /**
  * Created by feng on 2017/4/6.
  */
-public class MyFragment extends BaseFragment<MyPresenter> implements View.OnClickListener {
+public class MyFragment extends BaseFragment<MyPresenter> implements View.OnClickListener, View.OnTouchListener {
 
     private View mRootView;
 
@@ -37,6 +35,51 @@ public class MyFragment extends BaseFragment<MyPresenter> implements View.OnClic
             mButton2 = mRootView.findViewById(R.id.button2);
             mButton1.setOnClickListener(this);
             mButton2.setOnClickListener(this);
+            mButton2.setOnTouchListener(this);
+
+            mRootView.findViewById(R.id.view1).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            Log.d("", "");
+                            return true;
+                        case MotionEvent.ACTION_UP:
+                            Log.d("", "");
+                            break;
+                        case MotionEvent.ACTION_CANCEL:
+                            Log.d("", "");
+                            break;
+                        case MotionEvent.ACTION_MOVE:
+                            Log.d("", "");
+                            return true;
+                        default:
+                            break;
+                    }
+                    return true;
+                }
+            });
+            mRootView.findViewById(R.id.view2).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            Log.d("", "");
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            Log.d("", "");
+                            break;
+                        case MotionEvent.ACTION_CANCEL:
+                            Log.d("", "");
+                            break;
+                        case MotionEvent.ACTION_SCROLL:
+                            break;
+                        default:
+                            break;
+                    }
+                    return false;
+                }
+            });
 
         }
         return mRootView;
@@ -46,19 +89,29 @@ public class MyFragment extends BaseFragment<MyPresenter> implements View.OnClic
     @Override
     public void onClick(View v) {
         if (v == mButton1) {
-            PermissionCompatActivity activity = (PermissionCompatActivity) getActivity();
-            activity.requestAllPermissions();
-            try {
-                byte[] raw = FileUtils.read(Environment.getExternalStorageDirectory() + "/configmanager.json");
-                String str = new String(raw);
-                System.out.println();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-
+            ObjectAnimator.ofFloat(mButton2, "translationY", -300).setDuration(300).start();
         } else if (v == mButton2) {
-
-            startActivity(new Intent(getActivity(), BActivity.class));
+            ObjectAnimator.ofFloat(mButton2, "translationY", 0).setDuration(300).start();
         }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                Log.d("", "");
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.d("", "");
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                Log.d("", "");
+                break;
+            case MotionEvent.ACTION_SCROLL:
+                break;
+            default:
+                break;
+        }
+        return false;
     }
 }
