@@ -10,22 +10,22 @@ import android.view.MenuItem;
 
 import com.feng.activity.BActivity;
 import com.feng.activity.PermissionCompatActivity;
-import com.feng.fragment.GestureFragment;
-import com.feng.fragment.VideoDemoFragment;
-import com.feng.fragment.ViewGroupTouch;
-import com.feng.fragment.WeakReferenceFragment;
+import com.feng.fragment.AidlFragment;
+import com.feng.video.fragment.CustomVideoFragment;
+import com.feng.video.fragment.VideoFragment;
+
+import java.util.List;
 
 
 public class MainActivity extends PermissionCompatActivity {
-
+    List<ICallback> mCallbacks;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        initActionBar();
-        startFragment(new MyFragment());
+        startFragment(new AidlFragment());
 
 //        immersionBanner();
-
     }
 
     @Override

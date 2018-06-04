@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package top.shixinzhang.service;
+package com.feng.aidl;
 
 import android.app.Service;
 import android.content.Intent;
@@ -24,8 +24,6 @@ import android.support.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import top.shixinzhang.utils.LogUtils;
 
 /**
  * Description:
@@ -68,7 +66,6 @@ public class MyAidlService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         mPersons = new ArrayList<>();
-        LogUtils.d(TAG, "MyAidlService onBind");
         return mIBinder;
     }
 }

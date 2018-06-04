@@ -33,6 +33,16 @@
         <activity
             android:name="com.feng.activity.BActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|screenLayout" />
+
+        <service
+            android:name="com.feng.aidl.MyAidlService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <service
+            android:name="com.feng.aidl.IntentAidlService"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>

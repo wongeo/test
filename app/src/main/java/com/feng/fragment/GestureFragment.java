@@ -40,8 +40,6 @@ public class GestureFragment extends BaseFragment implements View.OnTouchListene
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
         mGestureDetector = new GestureDetector(getContext(), new GestureListener());
     }
 

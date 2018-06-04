@@ -1,6 +1,8 @@
 package com.feng.video.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.SurfaceTexture;
 import android.util.AttributeSet;
 import android.view.TextureView;
 import android.view.View;
@@ -150,4 +152,18 @@ public class NewTextureView extends TextureView {
         void onLayoutChange();
     }
 
+    private SurfaceTexture mSurfaceTexture;
+
+    public void setCacheSurfaceTexture(SurfaceTexture surfaceTexture) {
+        mSurfaceTexture = surfaceTexture;
+    }
+
+    @SuppressLint("NewApi")
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (getSurfaceTexture() != mSurfaceTexture) {
+            setSurfaceTexture(mSurfaceTexture);
+        }
+    }
 }

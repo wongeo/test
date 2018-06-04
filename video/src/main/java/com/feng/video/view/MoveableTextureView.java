@@ -1,11 +1,15 @@
-package com.youku.playerservice.view;
+package com.feng.video.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.SurfaceTexture;
 import android.util.AttributeSet;
 import android.view.TextureView;
 
 public class MoveableTextureView extends TextureView {
-    
+
+    private SurfaceTexture mSurfaceTexture;
+
     public MoveableTextureView(Context context) {
         super(context);
     }
@@ -18,5 +22,16 @@ public class MoveableTextureView extends TextureView {
         super(context, attrs, defStyleAttr);
     }
 
+    public void setCacheSurfaceTexture(SurfaceTexture surfaceTexture) {
+        mSurfaceTexture = surfaceTexture;
+    }
 
+    @SuppressLint("NewApi")
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (getSurfaceTexture() != mSurfaceTexture) {
+            setSurfaceTexture(mSurfaceTexture);
+        }
+    }
 }

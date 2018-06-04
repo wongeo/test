@@ -8,8 +8,14 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.RotateAnimation;
 
 import com.feng.mvp.BaseFragment;
+import com.feng.util.io.StreamUtils;
+
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 /**
@@ -93,6 +99,25 @@ public class MyFragment extends BaseFragment<MyPresenter> implements View.OnClic
         } else if (v == mButton2) {
             ObjectAnimator.ofFloat(mButton2, "translationY", 0).setDuration(300).start();
         }
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL("https://ups.youku.com/ups/get.json?ckey=7B19C0AB12633B22E7FE81271162026020570708D6CC189E4924503C49D243A0DE6CD84A766832C2C99898FC5ED31F3709BB3CDD82C96492E721BDD381735026&client_ip=30.96.89.34&client_ts=1520826136&utid=Vxmc8UTuyi4DALo61wu6B7Af&vid=XMzQ1MTA4NDU4MA==&ccode=01010101&showid=&show_videoseq=&playlist_id=&playlist_videoseq=&h265=1&point=1&language=&audiolang=1&media_type=standard,audio&password=&client_id=&tq=0&mac=&network=1000&brand=HUAWEI&os_ver=&app_ver=6.8.1.123&key_index=23570660&d_type=&needbf=1&needad=0&");
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.connect();
+                    InputStream inputStream = connection.getInputStream();
+                    String result = StreamUtils.inputStream2String(inputStream);
+                    Log.d("getups", result);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+
     }
 
     @Override

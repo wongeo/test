@@ -1,5 +1,6 @@
 package com.feng.video.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.SurfaceTexture;
@@ -15,8 +16,8 @@ import android.view.TextureView;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.feng.media.VideoMediaPlayer;
 import com.feng.media.IPlayStateCallback;
+import com.feng.media.VideoMediaPlayer;
 
 /**
  * Created by feng on 2017/11/9.
@@ -24,7 +25,7 @@ import com.feng.media.IPlayStateCallback;
 
 public class CustomVideoView extends FrameLayout {
 
-    private NewTextureView mTextureView;
+    private MoveableTextureView mTextureView;
 
     private VideoMediaPlayer mMediaPlayer;
 
@@ -52,11 +53,11 @@ public class CustomVideoView extends FrameLayout {
     }
 
     private void initTextureView() {
-        mTextureView = new NewTextureView(getContext());
+        mTextureView = new MoveableTextureView(getContext());
         mTextureView.setSurfaceTextureListener(mSurfaceTextureListener);
 
-        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        addView(mTextureView, params);
+//        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+//        addView(mTextureView, params);
     }
 
     /**
@@ -78,12 +79,12 @@ public class CustomVideoView extends FrameLayout {
 
     private void initMediaPlayer() {
         mMediaPlayer = new VideoMediaPlayer();
-        mMediaPlayer.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
-            @Override
-            public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
-                mTextureView.setVideoSize(width, height);
-            }
-        });
+//        mMediaPlayer.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
+//            @Override
+//            public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+//                mTextureView.setVideoSize(width, height);
+//            }
+//        });
     }
 
     public VideoMediaPlayer getMediaPlayer() {
@@ -94,6 +95,7 @@ public class CustomVideoView extends FrameLayout {
 
         @Override
         public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+            mTextureView.setCacheSurfaceTexture(surface);
             if (mMediaPlayer != null) {
                 mMediaPlayer.setSurface(new Surface(surface));
             }

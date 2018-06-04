@@ -21,9 +21,9 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Description:
@@ -36,36 +36,29 @@ import java.util.List;
  * <a  href="https://about.me/shixinzhang">About me</a>
  */
 
-public class MyAidlService extends Service {
+public class IntentAidlService extends Service {
     private final String TAG = this.getClass().getSimpleName();
-
-    private ArrayList<Person> mPersons;
 
     /**
      * 继承生成的本地 Binder ，实现 AIDL 制定的方法
      */
-    private IBinder mIBinder = new IMyAidl.Stub() {
+    private IBinder mIBinder = new IMyAidlInterface.Stub() {
 
         @Override
-        public void addPerson(Person person) throws RemoteException {
-            mPersons.add(person);
-        }
-
-        @Override
-        public List<Person> getPersonList() throws RemoteException {
-            return mPersons;
+        public void nav(Intent intent) throws RemoteException {
+            Log.d("", "");
         }
     };
 
     /**
      * 客户端与服务端绑定时的回调，返回 mIBinder 后客户端就可以通过它远程调用服务端的方法，即实现了通讯
+     *
      * @param intent
      * @return
      */
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        mPersons = new ArrayList<>();
         return mIBinder;
     }
 }

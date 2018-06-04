@@ -16,13 +16,14 @@ import com.feng.video.view.MediaBottomView;
  * Created by feng on 2017/11/9.
  */
 
-public class CustomVideoFragment extends BaseFragment<CustomVideoPresenter> implements View.OnTouchListener, MediaBottomView.IMediaBottomViewListener {
+public class CustomVideoFragment extends BaseFragment<CustomVideoPresenter> implements View.OnTouchListener, View.OnClickListener, MediaBottomView.IMediaBottomViewListener {
 
     public CustomVideoView mVideoView;
 
     public MediaBottomView mMediaBottomView;
 
-    private View mRootView;
+    private View mRootView, mMoveBtn;
+    private ViewGroup mLayoutTop, mLayoutBottom;
 
     public CustomVideoFragment() {
         CustomVideoPresenter presenter = new CustomVideoPresenter(this);
@@ -39,6 +40,12 @@ public class CustomVideoFragment extends BaseFragment<CustomVideoPresenter> impl
             mVideoView.setOnTouchListener(this);
             mMediaBottomView = (MediaBottomView) mRootView.findViewById(R.id.media_bottom_view);
             mMediaBottomView.setListener(this);
+
+            mLayoutTop = (ViewGroup) mRootView.findViewById(R.id.layouttop);
+            mLayoutBottom = (ViewGroup) mRootView.findViewById(R.id.layoutbottom);
+            mMoveBtn = mRootView.findViewById(R.id.move);
+            mMoveBtn.setOnClickListener(this);
+
         }
         return mRootView;
     }
@@ -70,5 +77,16 @@ public class CustomVideoFragment extends BaseFragment<CustomVideoPresenter> impl
     @Override
     public void onSeekTo(float percent) {
         mPresenter.onSeekTo(percent);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (mLayoutTop.getChildCount() > 0) {
+            mLayoutTop.removeAllViews();
+            mLayoutBottom.addView(mVideoView);
+        } else {
+            mLayoutBottom.removeAllViews();
+            mLayoutTop.addView(mVideoView);
+        }
     }
 }

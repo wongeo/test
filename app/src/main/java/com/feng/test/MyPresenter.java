@@ -2,6 +2,7 @@ package com.feng.test;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.feng.mvp.BasePresenter;
@@ -26,51 +27,45 @@ public class MyPresenter extends BasePresenter<MyFragment> {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         mCallbacks = new ArrayList<>();
 
-        MyCallback call1 = new MyCallback();
-        call1.weight = 1;
-        call1.name = "name1";
-        MyCallback call2 = new MyCallback();
-        call2.weight = 2;
-        call2.name = "name2";
-        MyCallback call3 = new MyCallback();
-        call3.weight = 3;
-        call3.name = "name3";
-        MyCallback call4 = new MyCallback();
-        call4.weight = 2;
-        call4.name = "name4";
-
-        mCallbacks.add(call1);
-        mCallbacks.add(call2);
-        mCallbacks.add(call3);
-        mCallbacks.add(call4);
-
+        mCallbacks.add(new MyCallback("aaaa", 0));
+        mCallbacks.add(new MyCallback("bbbb", 1));
+        mCallbacks.add(new MyCallback("cccc", 2));
+        mCallbacks.add(new MyCallback("dddd", 3));
 
         Collections.sort(mCallbacks, new Comparator<ICallback>() {
             @Override
             public int compare(ICallback o1, ICallback o2) {
-                return o2.weight() - o1.weight();
+                return o2.level() - o1.level();
             }
         });
 
         for (ICallback callback : mCallbacks) {
-            callback.exc();
+            callback.run();
         }
-
     }
 
-    public class MyCallback implements ICallback {
+    private class MyCallback implements ICallback {
+        private final int mLevel;
+        private String mName;
 
-        public int weight;
-        public String name;
-
-        @Override
-        public int weight() {
-            return weight;
+        public MyCallback(String name, int level) {
+            mName = name;
+            mLevel = level;
         }
 
         @Override
-        public void exc() {
+        public int level() {
+            return mLevel;
+        }
 
+        @Override
+        public int run() {
+            return Log.d("CallbackManager", mName + ":" + mLevel);
+        }
+
+        @Override
+        public boolean intercept() {
+            return false;
         }
     }
 }

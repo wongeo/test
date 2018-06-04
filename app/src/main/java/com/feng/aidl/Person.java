@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package top.shixinzhang.service;
+package com.feng.aidl;
 
 import android.os.Parcel;
 import android.os.Parcelable;

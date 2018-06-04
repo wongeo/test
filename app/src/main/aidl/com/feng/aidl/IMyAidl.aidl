@@ -1,8 +1,8 @@
 // IMyAidl.aidl
-package com.feng.test;
+package com.feng.aidl;
 
 // Declare any non-default types here with import statements
-import com.feng.test.Person;
+import com.feng.aidl.Person;
 
 interface IMyAidl {
     /**
