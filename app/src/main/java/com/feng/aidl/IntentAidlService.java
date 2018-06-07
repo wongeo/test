@@ -46,7 +46,7 @@ public class IntentAidlService extends Service {
 
         @Override
         public void nav(Intent intent) throws RemoteException {
-            Log.d("", "");
+            Log.d("IMyAidlInterface", "IMyAidlInterface:"+intent.hashCode());
         }
     };
 

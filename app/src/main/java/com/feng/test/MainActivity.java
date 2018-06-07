@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.feng.activity.BActivity;
 import com.feng.activity.PermissionCompatActivity;
 import com.feng.fragment.AidlFragment;
+import com.feng.fragment.HandlerThreadFragment;
 import com.feng.video.fragment.CustomVideoFragment;
 import com.feng.video.fragment.VideoFragment;
 
@@ -23,7 +24,7 @@ public class MainActivity extends PermissionCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        initActionBar();
-        startFragment(new AidlFragment());
+        startFragment(new HandlerThreadFragment());
 
 //        immersionBanner();
     }
