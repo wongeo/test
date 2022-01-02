@@ -2,6 +2,8 @@
 
 buildscript {
     repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         jcenter()
     }
     dependencies {
@@ -18,8 +20,9 @@ allprojects {
     repositories {
         jcenter()
         repositories {
+            mavenLocal()
+            maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
             jcenter()
-
         }
     }
     ext {

@@ -3,6 +3,7 @@ package com.feng.media;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
+import android.view.SurfaceHolder;
 
 import java.io.IOException;
 
@@ -33,6 +34,10 @@ public class VideoMediaPlayer extends MediaPlayer {
         }
     }
 
+    @Override
+    public void setDisplay(SurfaceHolder sh) {
+        super.setDisplay(sh);
+    }
 
     public void seekTo(float percent) {
         super.seekTo((int) (getDuration() * percent));

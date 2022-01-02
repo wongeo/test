@@ -24,7 +24,7 @@ public class MainActivity extends PermissionCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        initActionBar();
-        startFragment(new HandlerThreadFragment());
+        startFragment(new CustomVideoFragment());
 
 //        immersionBanner();
     }

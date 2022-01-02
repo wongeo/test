@@ -56,8 +56,8 @@ public class CustomVideoView extends FrameLayout {
         mTextureView = new MoveableTextureView(getContext());
         mTextureView.setSurfaceTextureListener(mSurfaceTextureListener);
 
-//        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-//        addView(mTextureView, params);
+        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        addView(mTextureView, params);
     }
 
     /**
